@@ -24,6 +24,7 @@ function WaLink({ className, label, size, children }: { className: string; label
 export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-ink text-primary-foreground border-b border-gold/30">
+      <a href="#offers" className="rc-topbar"><b>★ 10-Year UAE Golden Visa</b><span>|</span><b>✦ 4% DLD Fee Waiver</b><span className="hidden sm:inline">|</span><u className="hidden sm:inline">See how to qualify →</u></a>
       <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between gap-3">
         <a className="flex items-center gap-3 min-w-0" href="#top">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -32,7 +33,7 @@ export function Header() {
         </a>
         <div className="flex items-center gap-2">
           <WaLink className="hidden sm:inline-flex items-center gap-1.5 rounded-md border border-gold/50 px-3 py-2 text-xs font-medium text-gold-soft"> WhatsApp</WaLink>
-          <CtaButton className="rc-shine rounded-md bg-gold text-ink px-3.5 py-2 text-xs font-bold shadow">Register Interest</CtaButton>
+          <CtaButton className="btn-primary rc-shine px-3.5 py-2 text-xs">Register Interest</CtaButton>
         </div>
       </div>
       <nav className="border-t border-gold/20 bg-card" aria-label={`${PROJECT} sections`}>
@@ -62,10 +63,6 @@ export function Hero() {
             <span className="rc-shine relative overflow-hidden rounded-full bg-gold text-ink px-3 py-1 text-[11px] font-black tracking-[0.2em]">NEW LAUNCH</span>
             <span className="rounded-full border border-gold/60 px-3 py-1 text-[11px] font-bold tracking-[0.15em] text-gold-soft">REGISTRATION OPEN</span>
           </div>
-          <div className="mt-2.5 flex flex-wrap gap-2">
-            <a href="#offers" className="rc-chip">★ 10-Year Golden Visa</a>
-            <a href="#offers" className="rc-chip">✦ DLD Fee Waiver</a>
-          </div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.02] mt-4">
             {PROJECT} by DAMAC <span className="block text-gold-soft text-2xl sm:text-3xl md:text-4xl mt-2">Paradise has a sequel</span>
           </h1>
@@ -73,14 +70,19 @@ export function Hero() {
             An island-inspired master community of <b>luxury villas, twin villas and townhouses</b> with <b>45+ world-class amenities</b> across eight island clusters. The follow-up to the sold-out DAMAC Islands, presented by {BRAND}.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <CtaButton className="rc-shine rc-glow rounded-md bg-gold text-ink px-6 py-4 text-sm font-black shadow-xl">Register My Interest →</CtaButton>
-            <CtaButton title={`Download the ${PROJECT} brochure`} className="rounded-md border border-primary-foreground/50 bg-primary-foreground/10 px-6 py-4 text-sm font-semibold text-center">Download Brochure</CtaButton>
+            <CtaButton className="btn-primary rc-shine rc-glow px-6 py-4 text-sm">Register My Interest →</CtaButton>
+            <CtaButton title={`Download the ${PROJECT} brochure`} className="btn-ghost px-6 py-4 text-sm">Download Brochure</CtaButton>
+          </div>
+          <div className="rc-heroofers">
+            <a href="#offers" className="rc-heroofer"><span className="num">10<small>yr</small></span><span><b>UAE Golden Visa</b><em>Property from AED 2M</em></span></a>
+            <a href="#offers" className="rc-heroofer"><span className="num">4%</span><span><b>DLD Fee Waiver</b><em>Save AED 120K on AED 3M</em></span></a>
           </div>
         </div>
         <div id="lead" className="rounded-xl bg-card text-card-foreground shadow-2xl border border-border p-5 md:p-7 scroll-mt-32">
           <p className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold">Priority access</p>
           <h2 className="font-display text-2xl md:text-3xl mt-1 text-primary">Get {PROJECT} prices &amp; floor plans.</h2>
           <p className="text-sm text-muted-foreground mt-1.5">A specialist calls you back within the hour with live availability.</p>
+          <div className="rc-banner"><span>★ Golden Visa guidance</span><span>✦ DLD fee waiver</span></div>
           <HeroLeadForm />
         </div>
       </div>
@@ -150,7 +152,7 @@ export function Offers() {
                 <li>Includes your spouse and children</li>
                 <li>Renewable long-term residency with no local sponsor</li>
               </ul>
-              <CtaButton title="Check my Golden Visa eligibility" className="rc-shine mt-6 rounded-md bg-gold text-ink px-6 py-3.5 text-sm font-black shadow-xl">Check my eligibility →</CtaButton>
+              <CtaButton title="Check my Golden Visa eligibility" className="btn-primary rc-shine mt-6 px-6 py-3.5 text-sm">Check my eligibility →</CtaButton>
             </div>
           </article>
           <article className="rc-offer rc-r">
@@ -165,7 +167,7 @@ export function Offers() {
                 <li>On a AED 3M home, that is <b>AED 120,000 saved</b></li>
                 <li>Available on selected units: ask us what applies</li>
               </ul>
-              <CtaButton title="Claim the DLD fee waiver" className="rc-shine mt-6 rounded-md bg-gold text-ink px-6 py-3.5 text-sm font-black shadow-xl">Claim this offer →</CtaButton>
+              <CtaButton title="Claim the DLD fee waiver" className="btn-primary rc-shine mt-6 px-6 py-3.5 text-sm">Claim this offer →</CtaButton>
             </div>
           </article>
         </div>
@@ -204,7 +206,7 @@ export function Overview() {
             <div className="p-5">
               <b className="font-display text-xl text-primary">Pricing &amp; payment plan on request</b>
               <p className="text-sm text-muted-foreground mt-1">Speak to a {BRAND} specialist for live availability, prices and the latest payment plan.</p>
-              <CtaButton className="mt-4 rounded-md bg-primary text-primary-foreground px-6 py-3.5 text-sm font-bold">Request Prices →</CtaButton>
+              <CtaButton className="btn-primary mt-4 px-6 py-3.5 text-sm">Request Prices →</CtaButton>
             </div>
           </div>
         </div>
@@ -219,16 +221,16 @@ export function Homes() {
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 className="rc-bar font-display text-3xl md:text-4xl">{PROJECT} homes &amp; floor plans</h2>
-          <CtaButton className="rounded-md bg-gold text-ink px-4 py-2.5 text-xs font-bold">Request all prices</CtaButton>
+          <CtaButton className="btn-primary px-4 py-2.5 text-xs">Request all prices</CtaButton>
         </div>
         <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {homes.map((h) => (
-            <div key={h.code} className="rc-r rc-hover rounded-xl bg-primary-foreground/5 border border-primary-foreground/15 p-5">
+            <div key={h.code} className="rc-r rc-hover rc-darkcard rounded-xl p-5">
               <b className="font-display text-xl">{h.name}</b>
               <p className="text-xs text-gold-soft mt-1 tracking-wide">{h.code}</p>
               <p className="text-xs text-primary-foreground/70 mt-2">{h.sqft} · {h.sqm}</p>
               <div className="mt-4 text-gold-soft font-semibold">Price on request</div>
-              <CtaButton title={`Get the ${h.name} floor plan`} home={h.option} className="mt-4 inline-block text-center rounded-md border border-primary-foreground/30 px-5 py-2.5 text-xs font-semibold hover:bg-gold hover:text-ink hover:border-gold transition">Get Floor Plan</CtaButton>
+              <CtaButton title={`Get the ${h.name} floor plan`} home={h.option} className="btn-ghost mt-4 px-5 py-2.5 text-xs">Get Floor Plan</CtaButton>
             </div>
           ))}
         </div>
@@ -256,7 +258,7 @@ export function EcoLiving() {
             </li>
           ))}
         </ol>
-        <CtaButton className="mt-6 rounded-md bg-primary text-primary-foreground px-7 py-4 text-sm font-bold">Register My Interest →</CtaButton>
+        <CtaButton className="btn-primary mt-6 px-7 py-4 text-sm">Register My Interest →</CtaButton>
       </div>
     </section>
   );
@@ -311,7 +313,7 @@ export function Closing() {
       <h2 className="rc-bar font-display text-3xl md:text-5xl">Your island home awaits.</h2>
       <p className="mt-3 text-primary-foreground/75 text-sm md:text-base">Register with {BRAND} for first access to floor plans, prices and availability at {PROJECT}.</p>
       <div className="mt-6 flex flex-wrap gap-3 justify-center">
-        <CtaButton className="rc-shine rc-glow rounded-md bg-gold text-ink px-7 py-4 text-sm font-black shadow-xl">Register My Interest →</CtaButton>
+        <CtaButton className="btn-primary rc-shine rc-glow px-7 py-4 text-sm">Register My Interest →</CtaButton>
         <WaLink className="rounded-md border border-primary-foreground/40 px-6 py-4 text-sm inline-flex items-center justify-center gap-2"> WhatsApp us</WaLink>
       </div>
     </section>
@@ -320,7 +322,7 @@ export function Closing() {
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-primary-foreground/60 border-t border-primary-foreground/10 py-8 text-center text-[11px] px-4">
+    <footer className="rc-footer border-t border-primary-foreground/10 py-8 text-center text-[11px] px-4">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/img/logo.png" alt={BRAND} className="h-14 w-auto mx-auto mb-4" />
       <p>{BRAND}, Dubai. Prices, availability and payment plans are set by DAMAC Properties and change with each release. Images are artist’s impressions; finishes, furniture and specifications are subject to change.</p>
@@ -336,7 +338,7 @@ export function FloatingBar() {
       </WaLink>
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-card/95 backdrop-blur border-t border-border shadow-[0_-8px_24px_rgba(0,0,0,0.12)] pb-[env(safe-area-inset-bottom)]">
         <div className="px-3 py-2.5 flex items-center gap-2">
-          <CtaButton className="flex-1 rounded-md bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground py-3.5 text-sm font-semibold shadow-lg hover:brightness-110 transition">Register Interest →</CtaButton>
+          <CtaButton className="btn-primary flex-1 py-3.5 text-sm">Register Interest →</CtaButton>
           <WaLink size={20} label="WhatsApp" className="h-12 w-12 shrink-0 grid place-items-center rounded-md bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white shadow-lg" />
         </div>
       </div>

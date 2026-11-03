@@ -85,8 +85,8 @@ export default function Effects() {
           if (p.y < -0.02) { p.y = 1.02; p.x = Math.random(); }
           const x = (p.x + Math.sin(t / 1800 + p.ph) * 0.012) * W, y = p.y * H, tw = 0.5 + 0.5 * Math.sin(t / 500 + p.ph);
           const g = cx.createRadialGradient(x, y, 0, x, y, p.r * 5);
-          g.addColorStop(0, `rgba(241,223,174,${p.a * tw})`);
-          g.addColorStop(1, "rgba(201,162,95,0)");
+          g.addColorStop(0, `rgba(250,233,206,${p.a * tw})`);
+          g.addColorStop(1, "rgba(223,192,162,0)");
           cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, p.r * 5, 0, 6.283); cx.fill();
         });
         raf = requestAnimationFrame(draw);

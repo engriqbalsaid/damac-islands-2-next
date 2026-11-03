@@ -38,7 +38,7 @@ export default function Gallery() {
           <div className="flex gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 pb-1" role="tablist" aria-label="Gallery categories">
             {galleryCats.map((c) => (
               <button key={c} role="tab" aria-selected={c === cat} onClick={() => { setCat(c); setExpanded(false); }}
-                className={`shrink-0 rounded-full px-4 py-2 text-xs font-semibold border transition ${c === cat ? "bg-primary text-primary-foreground border-primary" : "bg-card text-foreground border-border"}`}>
+                className={`rc-tab shrink-0 rounded-full px-4 py-2 text-xs font-semibold border transition ${c === cat ? "rc-tab-on" : "bg-card text-foreground border-border"}`}>
                 {c} <span className="opacity-60">({counts(c)})</span>
               </button>
             ))}
@@ -57,13 +57,13 @@ export default function Gallery() {
           {match.length > GALLERY_LIMIT && (
             <div className="rc-more">
               <button type="button" onClick={() => { const was = expanded; setExpanded(!was); if (was) document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="rc-shine rounded-full border-2 border-primary bg-card text-primary px-8 py-3 text-sm font-bold hover:bg-primary hover:text-primary-foreground transition">
+                className="btn-outline-light px-8 py-3 text-sm">
                 {expanded ? "Show less" : `Show more (${match.length - GALLERY_LIMIT} more)`}
               </button>
             </div>
           )}
           <div className="mt-6 text-center">
-            <CtaButton className="rounded-md bg-primary text-primary-foreground px-7 py-4 text-sm font-bold">Get the Full Brochure →</CtaButton>
+            <CtaButton className="btn-primary px-7 py-4 text-sm">Get the Full Brochure →</CtaButton>
           </div>
         </div>
       </div>

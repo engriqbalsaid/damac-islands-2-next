@@ -45,14 +45,14 @@ export default function Location() {
               {places.map((pl, i) => (
                 <li key={pl.name}>
                   <button type="button" onClick={() => setSel(i)}
-                    className={`w-full h-full flex items-center justify-between gap-2 rounded-xl border px-3 py-3 text-left transition ${i === sel ? "border-gold bg-gold/10 shadow" : "border-border bg-card"}`}>
+                    className={`w-full h-full flex items-center justify-between gap-2 rounded-xl border px-3 py-3 text-left transition ${i === sel ? "border-accent bg-gold/25 shadow" : "border-border bg-card"}`}>
                     <span className="text-xs sm:text-sm font-medium text-foreground leading-tight">{pl.name}</span>
                     <b className="font-display text-primary whitespace-nowrap text-sm sm:text-base">{pl.min} min</b>
                   </button>
                 </li>
               ))}
             </ul>
-            <CtaButton title={`Download the ${PROJECT} brochure`} className="mt-4 inline-block text-center rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-lg">Download Location Map &amp; Brochure →</CtaButton>
+            <CtaButton title={`Download the ${PROJECT} brochure`} className="btn-primary mt-4 px-6 py-4 text-sm">Download Location Map &amp; Brochure →</CtaButton>
             <p className="mt-2 text-[11px] text-muted-foreground">Approximate drive times outside peak hours, per the developer’s brochure.</p>
           </div>
         </div>

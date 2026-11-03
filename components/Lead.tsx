@@ -85,7 +85,7 @@ export function LeadForm({ idPrefix, home, onDone, notify }: { idPrefix: string;
         <label className="grid gap-1.5"><span className={lab}>Timeline</span>
           <select name="timeline" defaultValue={timelineOptions[0]} className={input}>{timelineOptions.map((o) => <option key={o}>{o}</option>)}</select></label>
       </div>
-      <button type="submit" disabled={sending} className="mt-1 rounded-md bg-gradient-to-r from-primary via-accent to-primary px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg hover:brightness-110 disabled:opacity-60">
+      <button type="submit" disabled={sending} className="btn-primary mt-1 w-full px-5 py-3.5 text-sm">
         {sending ? "Sending…" : "Register My Interest →"}
       </button>
       <p className="text-[11px] text-muted-foreground text-center">🔒 Your details are safe. UAE PDPL compliant.</p>
@@ -129,6 +129,7 @@ export function LeadProvider({ children }: { children: ReactNode }) {
           <p className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold">Priority access</p>
           <h2 id="modal-title" className="font-display text-2xl md:text-3xl mt-1 text-primary">{opts.title ?? DEFAULT_TITLE}</h2>
           <p className="text-sm text-muted-foreground mt-1.5">A specialist calls you back within the hour with live availability.</p>
+          <div className="rc-banner"><span>★ Golden Visa guidance</span><span>✦ DLD fee waiver</span></div>
           {open && <LeadForm idPrefix="md" home={opts.home} onDone={close} notify={notify} />}
         </div>
       </div>
