@@ -18,7 +18,7 @@ npm run build && npm start   # production build
 | `LEAD_EMAIL` | Inbox that receives new leads (default `iqbalsaid99@gmail.com`) |
 | `RESEND_API_KEY` | Recommended. Sends lead emails through [Resend](https://resend.com). If empty, FormSubmit is used instead |
 | `LEAD_FROM` | Sender for Resend, e.g. `Red Carpet Leads <leads@yourdomain.com>` (verify the domain in Resend) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Digits only with country code, e.g. `971501234567`. Empty = WhatsApp buttons scroll to the form |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Digits only with country code, e.g. `971501234567`. Defaults to Red Carpet's number `971501464684` |
 | `NEXT_PUBLIC_SITE_URL` | Public URL, used for metadata (e.g. `https://damac.redcarpet.ae`) |
 
 Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activation link to `LEAD_EMAIL` the first time. Click it once or no leads arrive. Resend is more reliable for production.

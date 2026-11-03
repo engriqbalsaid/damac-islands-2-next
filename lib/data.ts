@@ -1,7 +1,13 @@
 export const BRAND = "Red Carpet Real Estate";
 export const PROJECT = "DAMAC Islands 2";
 export const BROCHURE = "/damac-islands-2-brochure.pdf";
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501464684";
+export const WHATSAPP_DISPLAY = "+971 50 146 4684";
+export const CONTACT_EMAIL = "info@redcarpetrealestate.ae";
+
+// Payment plan highlighted across the page (change here to update everywhere)
+export const PLAN = { split: "50/50", down: "16%", monthly: "0.75%", interest: "0%" };
+export const CURRENCY = "AED";
 export const WHATSAPP_MESSAGE = "Hi, I'd like to register my interest in DAMAC Islands 2.";
 
 export function whatsappHref(): string {
@@ -12,6 +18,7 @@ export function whatsappHref(): string {
 
 export const navItems = [
   ["offers", "Offers"],
+  ["payment-plan", "Payment Plan"],
   ["overview", "Overview"],
   ["location", "Location"],
   ["gallery", "Gallery"],
@@ -38,7 +45,7 @@ export const summaryItems: [string, string][] = [
   ["Bedrooms", "4 – 6 BR"],
   ["Island clusters", "8 themed clusters"],
   ["Amenities", "45+ world-class"],
-  ["Pricing & plan", "On request"],
+  ["Townhouses from", "AED 1,164,000"],
 ];
 
 export const stats: [number, string, string][] = [
@@ -80,13 +87,13 @@ export const gallery: GalleryItem[] = [
 export const galleryCats = ["All", "Exterior", "Interiors", "Amenities"] as const;
 export const GALLERY_LIMIT = 8;
 
-export type Home = { name: string; code: string; sqft: string; sqm: string; page: number; option: string };
+export type Home = { name: string; code: string; sqft: string; sqm: string; page: number; option: string; price?: number };
 export const homes: Home[] = [
   { name: "Luxury Villa", code: "DS-V45 · 6 BR + maid", sqft: "6,276 sq.ft", sqm: "583.09 sq.m", page: 73, option: "Luxury Villa (6 BR + maid)" },
   { name: "Twin Villa", code: "DSTW · 5 BR + maid", sqft: "3,492 sq.ft", sqm: "324.44 sq.m", page: 75, option: "Twin Villa (5 BR + maid)" },
-  { name: "Townhouse · End unit", code: "DSTH-E · 5 BR + maid", sqft: "3,158 sq.ft", sqm: "293.41 sq.m", page: 77, option: "Townhouse (5 BR + maid)" },
-  { name: "Townhouse · Mid unit", code: "DSTH-M2 · 5 BR + maid", sqft: "2,829 sq.ft", sqm: "262.85 sq.m", page: 79, option: "Townhouse (5 BR + maid)" },
-  { name: "Townhouse · Mid unit", code: "DSTH-M1 · 4 BR", sqft: "2,186 sq.ft", sqm: "203.04 sq.m", page: 78, option: "Townhouse (4 BR)" },
+  { name: "Townhouse · 4 Bedroom", code: "DSTH-M1 · 4 BR · Middle", sqft: "2,186 sq.ft", sqm: "203.04 sq.m", page: 78, option: "Townhouse (4 BR)", price: 1164000 },
+  { name: "Townhouse · 5 Bedroom Middle", code: "DSTH-M2 · 5 BR + maid", sqft: "2,829 sq.ft", sqm: "262.85 sq.m", page: 79, option: "Townhouse (5 BR + maid)", price: 1382000 },
+  { name: "Townhouse · 5 Bedroom Corner", code: "DSTH-E · 5 BR + maid", sqft: "3,158 sq.ft", sqm: "293.41 sq.m", page: 77, option: "Townhouse (5 BR + maid)", price: 1537000 },
 ];
 
 // x/y are percentages of the brochure location map (993 x 702).
@@ -128,9 +135,10 @@ export const faqs: [string, string][] = [
   ["How big are the homes?", "Saleable areas range from 2,186 sq.ft (203.04 sq.m) for the 4 BR townhouse to 6,276 sq.ft (583.09 sq.m) for the 6 BR luxury villa."],
   ["What are the eight island clusters?", "Bahamas, Barbados, Bermuda, Maui, Mauritius, Tahiti, Antigua and Cuba. Each one brings the spirit of an island escape into the community."],
   ["How far is DAMAC Islands 2 from key places?", "Roughly 15 minutes to Sports City, Motor City and DAMAC Hills, 20 minutes to the Expo 2020 venue, 23 minutes to Al Maktoum International Airport, 25 minutes to Dubai Investment Park and the Burj area, 35 minutes to Burj Al Arab and 40 minutes to Dubai International Airport."],
-  ["What are the prices and payment plan?", "Prices and payment plans are released by DAMAC and can change by release. Register your interest and a Red Carpet specialist will send you the latest availability, prices and payment plan."],
+  ["What are the prices and payment plan?", "Townhouses start from AED 1,164,000 for the 4 bedroom, AED 1,382,000 for the 5 bedroom middle unit and AED 1,537,000 for the 5 bedroom corner unit. Twin villa and luxury villa prices are on request. Choose an interest-free plan of up to 50/50 with a 16% down payment and 0.75% monthly instalments. Prices and availability can change, so register your interest for the latest."],
   ["What finishes are used inside?", "The brochure shows porcelain slab flooring, brushed brass metalwork, walnut wood veneer and marble countertops. Finishes and furniture are illustrative and may change based on availability."],
-  ["Can I get a UAE Golden Visa by buying here?", "Property investors who buy a home worth AED 2 million or more can apply for the UAE 10-year Golden Visa for themselves and their family, subject to government eligibility and approval. A Red Carpet specialist will guide you through the process."],
+  ["Do I really get a FREE Golden Visa?", "Yes. Red Carpet Real Estate offers a FREE UAE Golden Visa with your purchase, for you and your family, subject to the terms of the offer and approval by the UAE authorities. A specialist will guide you through the process."],
+  ["How does the 50/50 payment plan work?", "You can spread your payments with up to a 50/50 plan: a 16% down payment, then 0.75% monthly instalments at 0% interest. Ask a Red Carpet specialist for the exact schedule on your chosen home."],
   ["Is the DLD registration fee waived?", "The Dubai Land Department (DLD) registration fee is normally 4% of the property price. A DLD fee waiver is offered on selected units, subject to developer terms and availability. Register your interest and we will confirm what applies to your home."],
   ["How do I register my interest?", "Fill in the form at the top of this page or message us on WhatsApp. A Red Carpet Real Estate specialist will call you back with floor plans and live availability."],
 ];

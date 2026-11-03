@@ -129,7 +129,7 @@ export function LeadProvider({ children }: { children: ReactNode }) {
           <p className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold">Priority access</p>
           <h2 id="modal-title" className="font-display text-2xl md:text-3xl mt-1 text-primary">{opts.title ?? DEFAULT_TITLE}</h2>
           <p className="text-sm text-muted-foreground mt-1.5">A specialist calls you back within the hour with live availability.</p>
-          <div className="rc-banner"><span>★ Golden Visa guidance</span><span>✦ DLD fee waiver</span></div>
+          <div className="rc-banner"><span>★ FREE Golden Visa</span><span>✦ DLD fee waiver</span><span>✔ 0% interest plan</span></div>
           {open && <LeadForm idPrefix="md" home={opts.home} onDone={close} notify={notify} />}
         </div>
       </div>

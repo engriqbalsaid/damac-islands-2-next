@@ -1,5 +1,5 @@
 import {
-  BRAND, PROJECT, amenities, faqs, homes, islands, navItems, pillars, stats, summaryItems, whatsappHref,
+  BRAND, CONTACT_EMAIL, PLAN, PROJECT, WHATSAPP_DISPLAY, amenities, faqs, homes, islands, navItems, pillars, stats, summaryItems, whatsappHref,
 } from "@/lib/data";
 import { CtaButton, HeroLeadForm } from "./Lead";
 
@@ -24,7 +24,7 @@ function WaLink({ className, label, size, children }: { className: string; label
 export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-ink text-primary-foreground border-b border-gold/30">
-      <a href="#offers" className="rc-topbar"><b>★ 10-Year UAE Golden Visa</b><span>|</span><b>✦ 4% DLD Fee Waiver</b><span className="hidden sm:inline">|</span><u className="hidden sm:inline">See how to qualify →</u></a>
+      <a href="#offers" className="rc-topbar"><b>★ FREE Golden Visa</b><span>|</span><b>✦ DLD Fee Waiver</b><span>|</span><b>0% Interest · Up to 50/50 Plan</b><u className="hidden md:inline"> See offers →</u></a>
       <div className="mx-auto max-w-7xl px-4 h-16 flex items-center justify-between gap-3">
         <a className="flex items-center gap-3 min-w-0" href="#top">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -69,20 +69,22 @@ export function Hero() {
           <p className="answer mt-4 text-sm sm:text-base text-primary-foreground/85 max-w-xl">
             An island-inspired master community of <b>luxury villas, twin villas and townhouses</b> with <b>45+ world-class amenities</b> across eight island clusters. The follow-up to the sold-out DAMAC Islands, presented by {BRAND}.
           </p>
+          <p className="rc-pricetag"><small>Townhouses from</small> <b>AED 1,164,000</b> <i>Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</i></p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaButton className="btn-primary rc-shine rc-glow px-6 py-4 text-sm">Register My Interest →</CtaButton>
             <CtaButton title={`Download the ${PROJECT} brochure`} className="btn-ghost px-6 py-4 text-sm">Download Brochure</CtaButton>
           </div>
           <div className="rc-heroofers">
-            <a href="#offers" className="rc-heroofer"><span className="num">10<small>yr</small></span><span><b>UAE Golden Visa</b><em>Property from AED 2M</em></span></a>
+            <a href="#offers" className="rc-heroofer"><span className="num">FREE</span><span><b>10-Year Golden Visa</b><em>Included with your purchase</em></span></a>
             <a href="#offers" className="rc-heroofer"><span className="num">4%</span><span><b>DLD Fee Waiver</b><em>Save AED 120K on AED 3M</em></span></a>
+            <a href="#payment-plan" className="rc-heroofer"><span className="num">{PLAN.split}</span><span><b>Payment plan, {PLAN.interest} interest</b><em>{PLAN.down} down · {PLAN.monthly} monthly</em></span></a>
           </div>
         </div>
         <div id="lead" className="rounded-xl bg-card text-card-foreground shadow-2xl border border-border p-5 md:p-7 scroll-mt-32">
           <p className="text-[11px] tracking-[0.3em] uppercase text-accent font-semibold">Priority access</p>
           <h2 className="font-display text-2xl md:text-3xl mt-1 text-primary">Get {PROJECT} prices &amp; floor plans.</h2>
           <p className="text-sm text-muted-foreground mt-1.5">A specialist calls you back within the hour with live availability.</p>
-          <div className="rc-banner"><span>★ Golden Visa guidance</span><span>✦ DLD fee waiver</span></div>
+          <div className="rc-banner"><span>★ FREE Golden Visa</span><span>✦ DLD fee waiver</span><span>✔ 0% interest plan</span></div>
           <HeroLeadForm />
         </div>
       </div>
@@ -137,22 +139,22 @@ export function Offers() {
         <div className="text-center">
           <span className="rc-chip">✦ Exclusive buyer benefits</span>
           <h2 className="rc-bar font-display text-3xl md:text-5xl mt-4">Live the island life. <span className="rc-goldtext">Keep more of your money.</span></h2>
-          <p className="mt-3 text-sm md:text-base text-primary-foreground/75 max-w-2xl mx-auto">Two reasons investors and families choose {PROJECT} with {BRAND}: long-term UAE residency and a lower cost to buy.</p>
+          <p className="mt-3 text-sm md:text-base text-primary-foreground/75 max-w-2xl mx-auto">Why buyers choose {PROJECT} with {BRAND}: a free Golden Visa, a waived DLD fee and an interest-free payment plan.</p>
         </div>
         <div className="mt-10 grid md:grid-cols-2 gap-6 md:gap-8">
           <article className="rc-offer rc-r">
             <div className="rc-offer-in">
-              <span className="rc-ribbon">Residency</span>
+              <span className="rc-ribbon">FREE</span>
               <OfferIcon kind="visa" />
-              <p className="mt-4 text-[11px] tracking-[0.3em] uppercase text-gold-soft">UAE Golden Visa</p>
-              <div className="rc-big"><span data-count="10">10</span>-Year</div>
+              <p className="mt-4 text-[11px] tracking-[0.3em] uppercase text-gold-soft">10-Year UAE Golden Visa</p>
+              <div className="rc-big">FREE</div>
               <p className="font-display text-xl md:text-2xl mt-1">Residency for you and your family</p>
               <ul className="rc-ticks mt-5">
-                <li>Invest <b>AED 2 million or more</b> in property to qualify</li>
+                <li><b>FREE</b> Golden Visa included with your purchase*</li>
                 <li>Includes your spouse and children</li>
                 <li>Renewable long-term residency with no local sponsor</li>
               </ul>
-              <CtaButton title="Check my Golden Visa eligibility" className="btn-primary rc-shine mt-6 px-6 py-3.5 text-sm">Check my eligibility →</CtaButton>
+              <CtaButton title="Claim my FREE Golden Visa" className="btn-primary rc-shine mt-6 px-6 py-3.5 text-sm">Claim my FREE visa →</CtaButton>
             </div>
           </article>
           <article className="rc-offer rc-r">
@@ -172,6 +174,39 @@ export function Offers() {
           </article>
         </div>
         <p className="mt-6 text-center text-[11px] text-primary-foreground/50 max-w-3xl mx-auto">*Offers are subject to developer terms, unit availability and change without notice. Golden Visa eligibility and approval are determined by the UAE authorities.</p>
+      </div>
+    </section>
+  );
+}
+
+export function PaymentPlan() {
+  const items: [string, string, string][] = [
+    [`Up to ${PLAN.split}`, "Payment plan", "Spread your purchase your way"],
+    [PLAN.down, "Down payment", "Secure your home with a low entry"],
+    [PLAN.monthly, "Monthly instalments", "Simple, predictable payments"],
+    [PLAN.interest, "Interest", "Zero interest on the plan"],
+  ];
+  return (
+    <section id="payment-plan" className="scroll-mt-28 py-14 md:py-20">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="text-center">
+          <span className="rc-chip rc-chip-dark">✔ Interest-free payment plan</span>
+          <h2 className="rc-bar font-display text-3xl md:text-5xl mt-4 text-primary">Own your island home with <span className="rc-bronze">{PLAN.interest} interest</span></h2>
+          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">Pay up to a {PLAN.split} plan with just {PLAN.down} down and {PLAN.monthly} monthly instalments. Combined with a FREE Golden Visa and a DLD fee waiver.</p>
+        </div>
+        <div className="rc-plan-grid mt-10">
+          {items.map(([big, label, sub]) => (
+            <div key={label} className="rc-plan-card rc-r">
+              <div className="rc-plan-big">{big}</div>
+              <b className="font-display text-lg block mt-1">{label}</b>
+              <p className="text-xs text-primary-foreground/70 mt-1">{sub}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <CtaButton title="Get my payment plan" className="btn-primary rc-shine rc-glow px-8 py-4 text-sm">Get my payment plan →</CtaButton>
+          <p className="mt-4 text-[11px] text-muted-foreground max-w-2xl mx-auto">*Payment plan available on selected units and subject to developer approval, availability and change. Ask a specialist for the exact schedule.</p>
+        </div>
       </div>
     </section>
   );
@@ -204,8 +239,8 @@ export function Overview() {
               <img src="/img/masterplan.webp" alt={`Aerial view of the ${PROJECT} master community`} loading="lazy" className="h-full w-full object-cover" />
             </div>
             <div className="p-5">
-              <b className="font-display text-xl text-primary">Pricing &amp; payment plan on request</b>
-              <p className="text-sm text-muted-foreground mt-1">Speak to a {BRAND} specialist for live availability, prices and the latest payment plan.</p>
+              <b className="font-display text-xl text-primary">Townhouses from AED 1,164,000</b>
+              <p className="text-sm text-muted-foreground mt-1">Up to {PLAN.split} payment plan, {PLAN.down} down payment, {PLAN.interest} interest. Villa and twin villa prices on request.</p>
               <CtaButton className="btn-primary mt-4 px-6 py-3.5 text-sm">Request Prices →</CtaButton>
             </div>
           </div>
@@ -229,12 +264,16 @@ export function Homes() {
               <b className="font-display text-xl">{h.name}</b>
               <p className="text-xs text-gold-soft mt-1 tracking-wide">{h.code}</p>
               <p className="text-xs text-primary-foreground/70 mt-2">{h.sqft} · {h.sqm}</p>
-              <div className="mt-4 text-gold-soft font-semibold">Price on request</div>
+              {h.price ? (
+                <div className="mt-4"><div className="font-display text-2xl text-gold-soft">AED {h.price.toLocaleString("en-US")}</div><div className="text-[11px] text-primary-foreground/70 mt-1">Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</div></div>
+              ) : (
+                <div className="mt-4 text-gold-soft font-semibold">Price on request</div>
+              )}
               <CtaButton title={`Get the ${h.name} floor plan`} home={h.option} className="btn-ghost mt-4 px-5 py-2.5 text-xs">Get Floor Plan</CtaButton>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-[11px] text-primary-foreground/60">Saleable areas as stated in the developer’s brochure. Floor plans open in the brochure PDF.</p>
+        <p className="mt-4 text-[11px] text-primary-foreground/60">Prices in AED, subject to change and availability. Saleable areas as stated in the developer’s brochure.</p>
       </div>
     </section>
   );
@@ -315,6 +354,7 @@ export function Closing() {
       <div className="mt-6 flex flex-wrap gap-3 justify-center">
         <CtaButton className="btn-primary rc-shine rc-glow px-7 py-4 text-sm">Register My Interest →</CtaButton>
         <WaLink className="rounded-md border border-primary-foreground/40 px-6 py-4 text-sm inline-flex items-center justify-center gap-2"> WhatsApp us</WaLink>
+        <a href={`mailto:${CONTACT_EMAIL}`} className="btn-ghost px-6 py-4 text-sm">✉ {CONTACT_EMAIL}</a>
       </div>
     </section>
   );
@@ -325,6 +365,7 @@ export function Footer() {
     <footer className="rc-footer border-t border-primary-foreground/10 py-8 text-center text-[11px] px-4">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/img/logo.png" alt={BRAND} className="h-14 w-auto mx-auto mb-4" />
+      <p className="mb-3 text-sm"><a className="underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> <span className="mx-2">·</span> <a className="underline" href={whatsappHref()} target="_blank" rel="noreferrer">WhatsApp {WHATSAPP_DISPLAY}</a></p>
       <p>{BRAND}, Dubai. Prices, availability and payment plans are set by DAMAC Properties and change with each release. Images are artist’s impressions; finishes, furniture and specifications are subject to change.</p>
     </footer>
   );

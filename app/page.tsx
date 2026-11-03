@@ -3,7 +3,7 @@ import Gallery from "@/components/Gallery";
 import { LeadProvider } from "@/components/Lead";
 import Location from "@/components/Location";
 import {
-  Amenities, Closing, EcoLiving, Faq, FloatingBar, Footer, Header, Hero, Homes, Offers, Overview, StatsBand,
+  Amenities, Closing, EcoLiving, Faq, FloatingBar, Footer, Header, Hero, Homes, Offers, Overview, PaymentPlan, StatsBand,
 } from "@/components/Sections";
 
 export default function Page() {
@@ -15,6 +15,7 @@ export default function Page() {
         <Hero />
         <StatsBand />
         <Offers />
+        <PaymentPlan />
         <Overview />
         <Location />
         <Gallery />
