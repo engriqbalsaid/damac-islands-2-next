@@ -14,9 +14,6 @@
       "service": "damac-islands-2-next"
     }
   ],
-  "build": {
-    "command": "npx opennextjs-cloudflare build"
-  },
   "observability": {
     "enabled": true
   }
