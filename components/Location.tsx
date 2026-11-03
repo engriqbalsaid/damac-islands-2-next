@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { BROCHURE, PROJECT, SITE_POINT, places } from "@/lib/data";
+import { PROJECT, SITE_POINT, places } from "@/lib/data";
+import { CtaButton } from "./Lead";
 
 const MAP_W = 993;
 const MAP_H = 702;
@@ -51,7 +52,7 @@ export default function Location() {
                 </li>
               ))}
             </ul>
-            <a href={BROCHURE} download className="mt-4 inline-block text-center rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-lg">Download Location Map &amp; Brochure →</a>
+            <CtaButton title={`Download the ${PROJECT} brochure`} className="mt-4 inline-block text-center rounded-xl bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-lg">Download Location Map &amp; Brochure →</CtaButton>
             <p className="mt-2 text-[11px] text-muted-foreground">Approximate drive times outside peak hours, per the developer’s brochure.</p>
           </div>
         </div>

@@ -83,3 +83,23 @@ h2.rc-bar::after{content:"";position:absolute;left:0;bottom:0;display:block;heig
 .rc-map{filter:saturate(.55) sepia(.35) hue-rotate(-10deg)}
 .rc-toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:70;background:#111;color:#f3e7c9;border:1px solid #c9a25f;border-radius:10px;padding:14px 20px;font-size:14px;display:none;max-width:90vw;text-align:center}
 .rc-toast.show{display:block}
+
+/* ---- Golden Visa / DLD offers ---- */
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes rc-spin{to{--a:360deg}}
+@keyframes rc-shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.rc-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(201,162,95,.55);background:linear-gradient(90deg,rgba(201,162,95,.18),rgba(179,18,31,.18));color:#f1dfae;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(4px)}
+.rc-offers{position:relative;overflow:hidden;background:radial-gradient(900px 420px at 50% -10%,rgba(201,162,95,.28),transparent 70%),radial-gradient(700px 400px at 90% 110%,rgba(179,18,31,.28),transparent 70%),#0b0908}
+.rc-goldtext{background:linear-gradient(90deg,#f1dfae,#c9a25f,#f1dfae,#c9a25f);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rc-shimmer 6s linear infinite}
+.rc-offer{position:relative;border-radius:22px;padding:2px;background:conic-gradient(from var(--a),#c9a25f,#f1dfae,#b3121f,#c9a25f);animation:rc-spin 7s linear infinite;box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 60px -10px rgba(201,162,95,.35)}
+.rc-offer-in{position:relative;overflow:hidden;height:100%;border-radius:20px;padding:30px 28px 28px;background:linear-gradient(160deg,#1a130e,#0b0908 70%)}
+.rc-offer-in::before{content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,95,.3),transparent 70%)}
+.rc-offer-in>*{position:relative}
+.rc-ribbon{position:absolute!important;top:18px;right:-44px;transform:rotate(38deg);width:190px;text-align:center;background:linear-gradient(90deg,#b3121f,#d3202f);color:#fff;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:6px 0;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.rc-big{font-family:var(--font-display);font-size:clamp(3.4rem,9vw,5.2rem);line-height:1;margin-top:6px;background:linear-gradient(180deg,#fbeec4,#c9a25f 55%,#8f6d2f);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(201,162,95,.35))}
+.rc-ticks{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px;color:rgba(247,240,225,.82)}
+.rc-ticks li{position:relative;padding-left:28px}
+.rc-ticks li::before{content:"";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#f1dfae,#c9a25f);box-shadow:0 0 0 4px rgba(201,162,95,.15)}
+.rc-ticks li::after{content:"";position:absolute;left:6px;top:6px;width:5px;height:9px;border:solid #0b0908;border-width:0 2px 2px 0;transform:rotate(45deg) scale(.8)}
+.rc-ticks b{color:#f1dfae}
+@media (prefers-reduced-motion:reduce){.rc-offer,.rc-goldtext{animation:none!important}}

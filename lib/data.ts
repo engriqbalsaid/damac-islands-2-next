@@ -11,6 +11,7 @@ export function whatsappHref(): string {
 }
 
 export const navItems = [
+  ["offers", "Offers"],
   ["overview", "Overview"],
   ["location", "Location"],
   ["gallery", "Gallery"],
@@ -129,5 +130,7 @@ export const faqs: [string, string][] = [
   ["How far is DAMAC Islands 2 from key places?", "Roughly 15 minutes to Sports City, Motor City and DAMAC Hills, 20 minutes to the Expo 2020 venue, 23 minutes to Al Maktoum International Airport, 25 minutes to Dubai Investment Park and the Burj area, 35 minutes to Burj Al Arab and 40 minutes to Dubai International Airport."],
   ["What are the prices and payment plan?", "Prices and payment plans are released by DAMAC and can change by release. Register your interest and a Red Carpet specialist will send you the latest availability, prices and payment plan."],
   ["What finishes are used inside?", "The brochure shows porcelain slab flooring, brushed brass metalwork, walnut wood veneer and marble countertops. Finishes and furniture are illustrative and may change based on availability."],
+  ["Can I get a UAE Golden Visa by buying here?", "Property investors who buy a home worth AED 2 million or more can apply for the UAE 10-year Golden Visa for themselves and their family, subject to government eligibility and approval. A Red Carpet specialist will guide you through the process."],
+  ["Is the DLD registration fee waived?", "The Dubai Land Department (DLD) registration fee is normally 4% of the property price. A DLD fee waiver is offered on selected units, subject to developer terms and availability. Register your interest and we will confirm what applies to your home."],
   ["How do I register my interest?", "Fill in the form at the top of this page or message us on WhatsApp. A Red Carpet Real Estate specialist will call you back with floor plans and live availability."],
 ];

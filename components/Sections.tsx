@@ -1,5 +1,5 @@
 import {
-  BRAND, BROCHURE, PROJECT, amenities, faqs, homes, islands, navItems, pillars, stats, summaryItems, whatsappHref,
+  BRAND, PROJECT, amenities, faqs, homes, islands, navItems, pillars, stats, summaryItems, whatsappHref,
 } from "@/lib/data";
 import { CtaButton, HeroLeadForm } from "./Lead";
 
@@ -62,6 +62,10 @@ export function Hero() {
             <span className="rc-shine relative overflow-hidden rounded-full bg-gold text-ink px-3 py-1 text-[11px] font-black tracking-[0.2em]">NEW LAUNCH</span>
             <span className="rounded-full border border-gold/60 px-3 py-1 text-[11px] font-bold tracking-[0.15em] text-gold-soft">REGISTRATION OPEN</span>
           </div>
+          <div className="mt-2.5 flex flex-wrap gap-2">
+            <a href="#offers" className="rc-chip">★ 10-Year Golden Visa</a>
+            <a href="#offers" className="rc-chip">✦ DLD Fee Waiver</a>
+          </div>
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.02] mt-4">
             {PROJECT} by DAMAC <span className="block text-gold-soft text-2xl sm:text-3xl md:text-4xl mt-2">Paradise has a sequel</span>
           </h1>
@@ -70,7 +74,7 @@ export function Hero() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaButton className="rc-shine rc-glow rounded-md bg-gold text-ink px-6 py-4 text-sm font-black shadow-xl">Register My Interest →</CtaButton>
-            <a href={BROCHURE} download className="rounded-md border border-primary-foreground/50 bg-primary-foreground/10 px-6 py-4 text-sm font-semibold text-center">Download Brochure</a>
+            <CtaButton title={`Download the ${PROJECT} brochure`} className="rounded-md border border-primary-foreground/50 bg-primary-foreground/10 px-6 py-4 text-sm font-semibold text-center">Download Brochure</CtaButton>
           </div>
         </div>
         <div id="lead" className="rounded-xl bg-card text-card-foreground shadow-2xl border border-border p-5 md:p-7 scroll-mt-32">
@@ -100,6 +104,74 @@ export function StatsBand() {
       </div>
       <div className="rc-marq" aria-hidden="true"><div>{loop.map((i, k) => <span key={k}>{i}</span>)}</div></div>
     </>
+  );
+}
+
+function OfferIcon({ kind }: { kind: "visa" | "dld" }) {
+  return kind === "visa" ? (
+    <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="url(#g1)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f1dfae" /><stop offset="1" stopColor="#c9a25f" /></linearGradient></defs>
+      <rect x="12" y="6" width="40" height="52" rx="5" />
+      <circle cx="32" cy="26" r="9" />
+      <path d="M23 26h18M32 17c-4 3-4 15 0 18M32 17c4 3 4 15 0 18" />
+      <path d="M20 46h24M24 51h16" />
+    </svg>
+  ) : (
+    <svg viewBox="0 0 64 64" width="56" height="56" fill="none" stroke="url(#g2)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#f1dfae" /><stop offset="1" stopColor="#c9a25f" /></linearGradient></defs>
+      <path d="M8 56V26l24-16 24 16v30" />
+      <path d="M4 56h56" />
+      <path d="M22 44l20-16" />
+      <circle cx="24" cy="31" r="3.2" />
+      <circle cx="40" cy="43" r="3.2" />
+    </svg>
+  );
+}
+
+export function Offers() {
+  return (
+    <section id="offers" className="rc-offers scroll-mt-28 py-14 md:py-20 text-primary-foreground">
+      <div className="mx-auto max-w-6xl px-4 relative">
+        <div className="text-center">
+          <span className="rc-chip">✦ Exclusive buyer benefits</span>
+          <h2 className="rc-bar font-display text-3xl md:text-5xl mt-4">Live the island life. <span className="rc-goldtext">Keep more of your money.</span></h2>
+          <p className="mt-3 text-sm md:text-base text-primary-foreground/75 max-w-2xl mx-auto">Two reasons investors and families choose {PROJECT} with {BRAND}: long-term UAE residency and a lower cost to buy.</p>
+        </div>
+        <div className="mt-10 grid md:grid-cols-2 gap-6 md:gap-8">
+          <article className="rc-offer rc-r">
+            <div className="rc-offer-in">
+              <span className="rc-ribbon">Residency</span>
+              <OfferIcon kind="visa" />
+              <p className="mt-4 text-[11px] tracking-[0.3em] uppercase text-gold-soft">UAE Golden Visa</p>
+              <div className="rc-big"><span data-count="10">10</span>-Year</div>
+              <p className="font-display text-xl md:text-2xl mt-1">Residency for you and your family</p>
+              <ul className="rc-ticks mt-5">
+                <li>Invest <b>AED 2 million or more</b> in property to qualify</li>
+                <li>Includes your spouse and children</li>
+                <li>Renewable long-term residency with no local sponsor</li>
+              </ul>
+              <CtaButton title="Check my Golden Visa eligibility" className="rc-shine mt-6 rounded-md bg-gold text-ink px-6 py-3.5 text-sm font-black shadow-xl">Check my eligibility →</CtaButton>
+            </div>
+          </article>
+          <article className="rc-offer rc-r">
+            <div className="rc-offer-in">
+              <span className="rc-ribbon">Save on purchase</span>
+              <OfferIcon kind="dld" />
+              <p className="mt-4 text-[11px] tracking-[0.3em] uppercase text-gold-soft">DLD Fee Waiver</p>
+              <div className="rc-big"><span data-count="4">4</span>% off</div>
+              <p className="font-display text-xl md:text-2xl mt-1">Dubai Land Department fee, waived</p>
+              <ul className="rc-ticks mt-5">
+                <li>The standard DLD registration fee is <b>4% of the price</b></li>
+                <li>On a AED 3M home, that is <b>AED 120,000 saved</b></li>
+                <li>Available on selected units: ask us what applies</li>
+              </ul>
+              <CtaButton title="Claim the DLD fee waiver" className="rc-shine mt-6 rounded-md bg-gold text-ink px-6 py-3.5 text-sm font-black shadow-xl">Claim this offer →</CtaButton>
+            </div>
+          </article>
+        </div>
+        <p className="mt-6 text-center text-[11px] text-primary-foreground/50 max-w-3xl mx-auto">*Offers are subject to developer terms, unit availability and change without notice. Golden Visa eligibility and approval are determined by the UAE authorities.</p>
+      </div>
+    </section>
   );
 }
 
