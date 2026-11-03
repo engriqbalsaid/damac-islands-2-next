@@ -69,7 +69,7 @@ export function Hero() {
           <p className="answer mt-4 text-sm sm:text-base text-primary-foreground/85 max-w-xl">
             An island-inspired master community of <b>luxury villas, twin villas and townhouses</b> with <b>45+ world-class amenities</b> across eight island clusters. The follow-up to the sold-out DAMAC Islands, presented by {BRAND}.
           </p>
-          <p className="rc-pricetag"><small>Townhouses from</small> <b>AED 1,164,000</b> <i>Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</i></p>
+          <p className="rc-pricetag"><small>Townhouses from</small> <b>AUD 1,164,000</b> <i>Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</i></p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaButton className="btn-primary rc-shine rc-glow px-6 py-4 text-sm">Register My Interest →</CtaButton>
             <CtaButton title={`Download the ${PROJECT} brochure`} className="btn-ghost px-6 py-4 text-sm">Download Brochure</CtaButton>
@@ -239,7 +239,7 @@ export function Overview() {
               <img src="/img/masterplan.webp" alt={`Aerial view of the ${PROJECT} master community`} loading="lazy" className="h-full w-full object-cover" />
             </div>
             <div className="p-5">
-              <b className="font-display text-xl text-primary">Townhouses from AED 1,164,000</b>
+              <b className="font-display text-xl text-primary">Townhouses from AUD 1,164,000</b>
               <p className="text-sm text-muted-foreground mt-1">Up to {PLAN.split} payment plan, {PLAN.down} down payment, {PLAN.interest} interest. Villa and twin villa prices on request.</p>
               <CtaButton className="btn-primary mt-4 px-6 py-3.5 text-sm">Request Prices →</CtaButton>
             </div>
@@ -265,7 +265,7 @@ export function Homes() {
               <p className="text-xs text-gold-soft mt-1 tracking-wide">{h.code}</p>
               <p className="text-xs text-primary-foreground/70 mt-2">{h.sqft} · {h.sqm}</p>
               {h.price ? (
-                <div className="mt-4"><div className="font-display text-2xl text-gold-soft">AED {h.price.toLocaleString("en-US")}</div><div className="text-[11px] text-primary-foreground/70 mt-1">Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</div></div>
+                <div className="mt-4"><div className="font-display text-2xl text-gold-soft">AUD {h.price.toLocaleString("en-US")}</div><div className="text-[11px] text-primary-foreground/70 mt-1">Up to {PLAN.split} plan · {PLAN.down} down · {PLAN.interest} interest</div></div>
               ) : (
                 <div className="mt-4 text-gold-soft font-semibold">Price on request</div>
               )}
@@ -273,7 +273,7 @@ export function Homes() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-[11px] text-primary-foreground/60">Prices in AED, subject to change and availability. Saleable areas as stated in the developer’s brochure.</p>
+        <p className="mt-4 text-[11px] text-primary-foreground/60">Prices in AUD, subject to change and availability. Saleable areas as stated in the developer’s brochure.</p>
       </div>
     </section>
   );

@@ -7,7 +7,7 @@ export const CONTACT_EMAIL = "info@redcarpetrealestate.ae";
 
 // Payment plan highlighted across the page (change here to update everywhere)
 export const PLAN = { split: "50/50", down: "16%", monthly: "0.75%", interest: "0%" };
-export const CURRENCY = "AED";
+export const CURRENCY = "AUD";
 export const WHATSAPP_MESSAGE = "Hi, I'd like to register my interest in DAMAC Islands 2.";
 
 export function whatsappHref(): string {
@@ -45,7 +45,7 @@ export const summaryItems: [string, string][] = [
   ["Bedrooms", "4 – 6 BR"],
   ["Island clusters", "8 themed clusters"],
   ["Amenities", "45+ world-class"],
-  ["Townhouses from", "AED 1,164,000"],
+  ["Townhouses from", "AUD 1,164,000"],
 ];
 
 export const stats: [number, string, string][] = [
@@ -135,7 +135,7 @@ export const faqs: [string, string][] = [
   ["How big are the homes?", "Saleable areas range from 2,186 sq.ft (203.04 sq.m) for the 4 BR townhouse to 6,276 sq.ft (583.09 sq.m) for the 6 BR luxury villa."],
   ["What are the eight island clusters?", "Bahamas, Barbados, Bermuda, Maui, Mauritius, Tahiti, Antigua and Cuba. Each one brings the spirit of an island escape into the community."],
   ["How far is DAMAC Islands 2 from key places?", "Roughly 15 minutes to Sports City, Motor City and DAMAC Hills, 20 minutes to the Expo 2020 venue, 23 minutes to Al Maktoum International Airport, 25 minutes to Dubai Investment Park and the Burj area, 35 minutes to Burj Al Arab and 40 minutes to Dubai International Airport."],
-  ["What are the prices and payment plan?", "Townhouses start from AED 1,164,000 for the 4 bedroom, AED 1,382,000 for the 5 bedroom middle unit and AED 1,537,000 for the 5 bedroom corner unit. Twin villa and luxury villa prices are on request. Choose an interest-free plan of up to 50/50 with a 16% down payment and 0.75% monthly instalments. Prices and availability can change, so register your interest for the latest."],
+  ["What are the prices and payment plan?", "Townhouses start from AUD 1,164,000 for the 4 bedroom, AUD 1,382,000 for the 5 bedroom middle unit and AUD 1,537,000 for the 5 bedroom corner unit. Twin villa and luxury villa prices are on request. Choose an interest-free plan of up to 50/50 with a 16% down payment and 0.75% monthly instalments. Prices and availability can change, so register your interest for the latest."],
   ["What finishes are used inside?", "The brochure shows porcelain slab flooring, brushed brass metalwork, walnut wood veneer and marble countertops. Finishes and furniture are illustrative and may change based on availability."],
   ["Do I really get a FREE Golden Visa?", "Yes. Red Carpet Real Estate offers a FREE UAE Golden Visa with your purchase, for you and your family, subject to the terms of the offer and approval by the UAE authorities. A specialist will guide you through the process."],
   ["How does the 50/50 payment plan work?", "You can spread your payments with up to a 50/50 plan: a 16% down payment, then 0.75% monthly instalments at 0% interest. Ask a Red Carpet specialist for the exact schedule on your chosen home."],
