@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "opennextjs-cloudflare build",
+    "postinstall": "node scripts/cf.mjs postinstall",
+    "build": "node scripts/cf.mjs build",
     "build:next": "next build",
     "start": "next start",
     "preview": "wrangler dev",

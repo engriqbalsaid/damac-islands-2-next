@@ -28,7 +28,7 @@ Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activatio
 The repo already contains `wrangler.jsonc` and `open-next.config.ts`. The Worker name is `damac-islands-2-next` and must match the project name in Cloudflare.
 
 1. Cloudflare dashboard → **Workers & Pages → Create → Import a repository**, pick this repo.
-2. Leave the defaults: build command `npm run build`, deploy command `npx wrangler deploy`. `npm run build` creates the OpenNext bundle (`opennextjs-cloudflare build`), which `wrangler deploy` then uploads.
+2. Leave the defaults: build command `npm run build`, deploy command `npx wrangler deploy`. `npm run build` creates the OpenNext bundle (`opennextjs-cloudflare build`), which `wrangler deploy` then uploads. As a safety net, `scripts/cf.mjs` also builds the bundle right after `npm ci` on Cloudflare CI (`WORKERS_CI`), so the deploy works even if the dashboard build command was customised.
 3. Under **Settings → Variables and secrets** add the runtime variables (`LEAD_EMAIL`, `RESEND_API_KEY` as a secret, `LEAD_FROM`).
 4. Under **Settings → Build → Variables** add `NEXT_PUBLIC_WHATSAPP_NUMBER` and `NEXT_PUBLIC_SITE_URL` (these are baked in at build time).
 5. Add your custom domain under **Settings → Domains & Routes**.
