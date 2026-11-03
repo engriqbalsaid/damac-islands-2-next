@@ -1,13 +1,16 @@
 {
-  "name": "damac-islands-2-red-carpet",
+  "name": "damac-islands-2-next",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.15",
     "next": "16.4.4",
     "react": "19.3.1",
     "react-dom": "19.3.1"
@@ -16,6 +19,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "wrangler": "^4.157.0"
   }
 }

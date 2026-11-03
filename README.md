@@ -23,16 +23,21 @@ npm run build && npm start   # production build
 
 Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activation link to `LEAD_EMAIL` the first time. Click it once or no leads arrive. Resend is more reliable for production.
 
+## Deploy to Cloudflare (Workers + OpenNext)
+
+The repo already contains `wrangler.jsonc` and `open-next.config.ts`. The Worker name is `damac-islands-2-next` and must match the project name in Cloudflare.
+
+1. Cloudflare dashboard → **Workers & Pages → Create → Import a repository**, pick this repo.
+2. Leave the defaults: build command `npm run build`, deploy command `npx wrangler deploy`. Wrangler builds the OpenNext bundle automatically (`build.command` in `wrangler.jsonc`).
+3. Under **Settings → Variables and secrets** add the runtime variables (`LEAD_EMAIL`, `RESEND_API_KEY` as a secret, `LEAD_FROM`).
+4. Under **Settings → Build → Variables** add `NEXT_PUBLIC_WHATSAPP_NUMBER` and `NEXT_PUBLIC_SITE_URL` (these are baked in at build time).
+5. Add your custom domain under **Settings → Domains & Routes**.
+
+Local checks: `npm run preview` (runs the Worker locally) and `npx wrangler deploy --dry-run`.
+
 ## Deploy to Vercel
 
-1. Push this folder to a Git repo (GitHub/GitLab/Bitbucket).
-2. In Vercel: **Add New → Project**, import the repo (framework is detected as Next.js, no build settings needed).
-3. Add the environment variables above under **Settings → Environment Variables**.
-4. Deploy. Add your custom domain under **Settings → Domains**.
-
-CLI alternative: `npx vercel` then `npx vercel --prod`.
-
-Any Node host works too (`npm run build && npm start`), or a container.
+Import the repo in Vercel (Next.js is detected automatically) and add the same environment variables.
 
 ## Structure
 
