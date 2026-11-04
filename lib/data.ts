@@ -1,7 +1,8 @@
 export const BRAND = "Red Carpet Real Estate";
 export const PROJECT = "DAMAC Islands 2";
 export const BROCHURE = "/damac-islands-2-brochure.pdf";
-export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971501464684";
+// Red Carpet WhatsApp (used by the floating button, header, closing section and the lead form)
+export const WHATSAPP_NUMBER = "971501464684";
 export const WHATSAPP_DISPLAY = "+971 50 146 4684";
 export const CONTACT_EMAIL = "info@redcarpetrealestate.ae";
 

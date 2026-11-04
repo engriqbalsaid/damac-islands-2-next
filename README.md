@@ -13,12 +13,13 @@ npm run build && npm start   # production build
 
 ## Environment variables
 
+The WhatsApp number (`971501464684`) is set in `lib/data.ts` (`WHATSAPP_NUMBER`).
+
 | Variable | Purpose |
 | --- | --- |
 | `LEAD_EMAIL` | Inbox that receives new leads (default `iqbalsaid99@gmail.com`) |
 | `RESEND_API_KEY` | Recommended. Sends lead emails through [Resend](https://resend.com). If empty, FormSubmit is used instead |
 | `LEAD_FROM` | Sender for Resend, e.g. `Red Carpet Leads <leads@yourdomain.com>` (verify the domain in Resend) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Digits only with country code, e.g. `971501234567`. Defaults to Red Carpet's number `971501464684` |
 | `NEXT_PUBLIC_SITE_URL` | Public URL, used for metadata (e.g. `https://damac.redcarpet.ae`) |
 
 Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activation link to `LEAD_EMAIL` the first time. Click it once or no leads arrive. Resend is more reliable for production.
@@ -30,7 +31,7 @@ The repo already contains `wrangler.jsonc` and `open-next.config.ts`. The Worker
 1. Cloudflare dashboard → **Workers & Pages → Create → Import a repository**, pick this repo.
 2. Leave the defaults: build command `npm run build`, deploy command `npx wrangler deploy`. `npm run build` creates the OpenNext bundle (`opennextjs-cloudflare build`), which `wrangler deploy` then uploads. As a safety net, `scripts/cf.mjs` also builds the bundle right after `npm ci` on Cloudflare CI (`WORKERS_CI`), so the deploy works even if the dashboard build command was customised.
 3. Under **Settings → Variables and secrets** add the runtime variables (`LEAD_EMAIL`, `RESEND_API_KEY` as a secret, `LEAD_FROM`).
-4. Under **Settings → Build → Variables** add `NEXT_PUBLIC_WHATSAPP_NUMBER` and `NEXT_PUBLIC_SITE_URL` (these are baked in at build time).
+4. Under **Settings → Build → Variables** add `NEXT_PUBLIC_SITE_URL` (baked in at build time).
 5. Add your custom domain under **Settings → Domains & Routes**.
 
 Local checks: `npm run build && npm run preview` (runs the Worker locally). Plain Next.js build: `npm run build:next`.
