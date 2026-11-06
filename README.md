@@ -30,7 +30,7 @@ Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activatio
 Every successful form submission (hero form or popup) downloads the brochure and then redirects to **`/thank-you`**. Track conversions with either:
 
 - **URL-based goal:** count page views of `/thank-you` (GA4 key event / Google Ads / Meta Pixel "page view" rule).
-- **Event-based (more accurate):** the page pushes `{ event: "generate_lead", project, preferred_home, currency }` to `window.dataLayer` once per real submission. Google Tag Manager (`GTM-P49C4928`) is installed on every page, so just create a GTM trigger on the custom event `generate_lead`.
+- **Event-based (more accurate):** the page pushes `{ event: "generate_lead", project, preferred_home }` to `window.dataLayer` and sends the Google Ads conversion (`AW-18541661867/3LTECNKFj7MdEKudrYlF`, value 1.0 AED) once per real submission. Google Tag Manager (`GTM-P49C4928`) is installed on every page, so just create a GTM trigger on the custom event `generate_lead`.
 
 The page is `noindex`, so it stays out of search results.
 

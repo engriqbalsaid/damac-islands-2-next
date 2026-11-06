@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { BRAND, BROCHURE, CONTACT_EMAIL, PLAN, PROJECT, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/data";
 
 declare global {
-  interface Window { dataLayer?: Record<string, unknown>[] }
+  interface Window { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void }
 }
 
 export default function ThankYou() {
@@ -23,7 +23,13 @@ export default function ThankYou() {
           lead_source: "damac_islands_2_form",
           project: PROJECT,
           preferred_home: lead.home ?? "",
-          currency: "AUD",
+        });
+        // Google Ads conversion: "Damac form submit conversion page"
+        const gtag = window.gtag ?? function (...args: unknown[]) { (window.dataLayer = window.dataLayer || []).push(args); };
+        gtag("event", "conversion", {
+          send_to: "AW-18541661867/3LTECNKFj7MdEKudrYlF",
+          value: 1.0,
+          currency: "AED",
         });
         sessionStorage.removeItem("rc_lead");
       }
