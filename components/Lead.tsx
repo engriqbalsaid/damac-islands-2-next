@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { BROCHURE, PROJECT, timelineOptions, unitOptions, WHATSAPP_MESSAGE, WHATSAPP_NUMBER } from "@/lib/data";
+import { useRouter } from "next/navigation";
+import { BROCHURE, PROJECT, timelineOptions, unitOptions } from "@/lib/data";
 
 type OpenOpts = { title?: string; home?: string };
 const LeadContext = createContext<(o?: OpenOpts) => void>(() => {});
@@ -24,6 +25,7 @@ function downloadBrochure() {
 }
 
 export function LeadForm({ idPrefix, home, onDone, notify }: { idPrefix: string; home?: string; onDone?: () => void; notify: (t: string) => void }) {
+  const router = useRouter();
   const [sending, setSending] = useState(false);
   const [unit, setUnit] = useState(home ?? unitOptions[0]);
   useEffect(() => { if (home) setUnit(home); }, [home]);
@@ -46,15 +48,16 @@ export function LeadForm({ idPrefix, home, onDone, notify }: { idPrefix: string;
       const res = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || !json.ok) throw new Error(json.error || "failed");
-      if (WHATSAPP_NUMBER) {
-        const msg = `${WHATSAPP_MESSAGE}\nName: ${payload.name}\nPhone: ${payload.phone}\nEmail: ${payload.email}\nHome: ${payload.preferred_home}\nTimeline: ${payload.timeline}`;
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
-      }
+      // Flag read once by /thank-you to fire the conversion event (no personal data goes in the URL).
+      try {
+        sessionStorage.setItem("rc_lead", JSON.stringify({ firstName: payload.name.split(" ")[0], home: payload.preferred_home, at: Date.now() }));
+      } catch {}
       onDone?.();
       downloadBrochure();
-      notify(`Thank you ${payload.name}! Your brochure is downloading and a Red Carpet specialist will contact you shortly.`);
       form.reset();
       setUnit(unitOptions[0]);
+      // Give the browser a moment to start the download, then land on the thank-you page.
+      window.setTimeout(() => router.push("/thank-you"), 900);
     } catch {
       notify("Sorry, we couldn't send your details. Please check your connection and try again.");
     } finally {

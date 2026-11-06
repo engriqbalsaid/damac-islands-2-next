@@ -158,3 +158,11 @@ section[id]{scroll-margin-top:9.5rem}
   .md\:gap-8{gap:2rem}
   .md\:text-2xl{font-size:1.5rem;line-height:2rem}
 }
+
+/* ---- Thank-you page ---- */
+.rc-ty{background:radial-gradient(900px 480px at 50% -5%,rgba(223,192,162,.25),transparent 70%),radial-gradient(700px 420px at 90% 100%,rgba(90,14,14,.45),transparent 70%),#080809}
+.rc-check{display:inline-grid;place-items:center;height:112px;width:112px;border-radius:50%;color:#FAE9CE;background:radial-gradient(circle,rgba(223,192,162,.22),rgba(90,14,14,.35));border:1px solid rgba(223,192,162,.6);box-shadow:0 0 0 0 rgba(223,192,162,.5);animation:rc-offerpulse 2.6s ease-out infinite}
+.rc-check .ring{stroke-dasharray:145;stroke-dashoffset:145;animation:rc-draw .9s ease forwards}
+.rc-check .tick{stroke-dasharray:40;stroke-dashoffset:40;animation:rc-draw .5s .8s ease forwards}
+@keyframes rc-draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.rc-check,.rc-check .ring,.rc-check .tick{animation:none!important;stroke-dashoffset:0}}

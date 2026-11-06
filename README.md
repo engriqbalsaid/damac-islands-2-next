@@ -20,9 +20,19 @@ The WhatsApp number (`971501464684`) is set in `lib/data.ts` (`WHATSAPP_NUMBER`)
 | `LEAD_EMAIL` | Inbox that receives new leads (default `iqbalsaid99@gmail.com`) |
 | `RESEND_API_KEY` | Recommended. Sends lead emails through [Resend](https://resend.com). If empty, FormSubmit is used instead |
 | `LEAD_FROM` | Sender for Resend, e.g. `Red Carpet Leads <leads@yourdomain.com>` (verify the domain in Resend) |
+| `NEXT_PUBLIC_GTM_ID` | Optional Google Tag Manager container ID (build-time). Use it to run GA4, Google Ads and Meta Pixel tags |
 | `NEXT_PUBLIC_SITE_URL` | Public URL, used for metadata (e.g. `https://damac.redcarpet.ae`) |
 
 Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activation link to `LEAD_EMAIL` the first time. Click it once or no leads arrive. Resend is more reliable for production.
+
+## Conversion tracking
+
+Every successful form submission (hero form or popup) downloads the brochure and then redirects to **`/thank-you`**. Track conversions with either:
+
+- **URL-based goal:** count page views of `/thank-you` (GA4 key event / Google Ads / Meta Pixel "page view" rule).
+- **Event-based (more accurate):** the page pushes `{ event: "generate_lead", project, preferred_home, currency }` to `window.dataLayer` once per real submission. Set `NEXT_PUBLIC_GTM_ID` and create a GTM trigger on the custom event `generate_lead`.
+
+The page is `noindex`, so it stays out of search results.
 
 ## Deploy to Cloudflare (Workers + OpenNext)
 
