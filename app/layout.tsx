@@ -3,7 +3,8 @@ import Script from "next/script";
 import "./globals.css";
 import { BRAND, PROJECT } from "@/lib/data";
 
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+// Google Tag Manager container (override with NEXT_PUBLIC_GTM_ID if needed)
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-P49C4928";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
