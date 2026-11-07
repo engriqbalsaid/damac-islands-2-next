@@ -20,7 +20,7 @@ The WhatsApp number (`971501464684`) is set in `lib/data.ts` (`WHATSAPP_NUMBER`)
 | `LEAD_EMAIL` | Inbox that receives new leads (default `iqbalsaid99@gmail.com`) |
 | `RESEND_API_KEY` | Recommended. Sends lead emails through [Resend](https://resend.com). If empty, FormSubmit is used instead |
 | `LEAD_FROM` | Sender for Resend, e.g. `Red Carpet Leads <leads@yourdomain.com>` (verify the domain in Resend) |
-| `NEXT_PUBLIC_GTM_ID` | Optional override of the Google Tag Manager container (build-time). Defaults to `GTM-P49C4928` set in `app/layout.tsx` |
+| `NEXT_PUBLIC_GTM_ID` | Optional override of the Google Tag Manager containers, comma-separated (build-time). Defaults to `GTM-P49C4928,GTM-W39LVRPX` set in `app/layout.tsx` |
 | `NEXT_PUBLIC_SITE_URL` | Public URL, used for metadata (e.g. `https://damac.redcarpet.ae`) |
 
 Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activation link to `LEAD_EMAIL` the first time. Click it once or no leads arrive. Resend is more reliable for production.
@@ -30,7 +30,7 @@ Without `RESEND_API_KEY`, leads go through FormSubmit, which emails an activatio
 Every successful form submission (hero form or popup) downloads the brochure and then redirects to **`/thank-you`**. Track conversions with either:
 
 - **URL-based goal:** count page views of `/thank-you` (GA4 key event / Google Ads / Meta Pixel "page view" rule).
-- **Event-based (more accurate):** the page pushes `{ event: "generate_lead", project, preferred_home }` to `window.dataLayer` and sends the Google Ads conversion (`AW-18541661867/3LTECNKFj7MdEKudrYlF`, value 1.0 AED) once per real submission. Google Tag Manager (`GTM-P49C4928`) is installed on every page, so just create a GTM trigger on the custom event `generate_lead`.
+- **Event-based (more accurate):** the page pushes `{ event: "generate_lead", project, preferred_home }` to `window.dataLayer` and sends the Google Ads conversion (`AW-18541661867/3LTECNKFj7MdEKudrYlF`, value 1.0 AED) once per real submission. Google Tag Manager (`GTM-P49C4928` and `GTM-W39LVRPX`) is installed on every page, so just create a GTM trigger on the custom event `generate_lead`.
 
 The page is `noindex`, so it stays out of search results.
 

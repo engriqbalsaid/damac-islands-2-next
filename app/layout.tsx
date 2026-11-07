@@ -3,8 +3,8 @@ import Script from "next/script";
 import "./globals.css";
 import { BRAND, PROJECT } from "@/lib/data";
 
-// Google Tag Manager container (override with NEXT_PUBLIC_GTM_ID if needed)
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-P49C4928";
+// Google Tag Manager containers (override with a comma-separated NEXT_PUBLIC_GTM_ID if needed)
+const gtmIds = (process.env.NEXT_PUBLIC_GTM_ID || "GTM-P49C4928,GTM-W39LVRPX").split(",").map((s) => s.trim()).filter(Boolean);
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
@@ -38,10 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="theme-dn bg-background text-foreground font-sans">
-        {gtmId ? (
+        {gtmIds.length ? (
           <>
-            <Script id="gtm" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=document.getElementsByTagName('script')[0],j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=${gtmId}';f.parentNode.insertBefore(j,f);`}</Script>
-            <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} /></noscript>
+            <Script id="gtm" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments);};window.gtag('js',new Date());${JSON.stringify(gtmIds)}.forEach(function(id){window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=document.getElementsByTagName('script')[0],j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+id;f.parentNode.insertBefore(j,f);});`}</Script>
+            <noscript>
+              {gtmIds.map((id) => (
+                <iframe key={id} src={`https://www.googletagmanager.com/ns.html?id=${id}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} />
+              ))}
+            </noscript>
           </>
         ) : null}
         {children}
